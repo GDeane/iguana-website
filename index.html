@@ -9,6 +9,11 @@
             font-family: Arial, sans-serif;
             margin: 40px;
             background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
         }
         .container {
             max-width: 800px;
@@ -17,9 +22,17 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .container {
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
         h1 {
             color: #0055a4; /* University of Waterloo blue */
+        }
+        body.dark-mode h1 {
+            color: #4da6ff;
         }
         .iguana-img {
             max-width: 100%;
@@ -27,9 +40,25 @@
             border-radius: 8px;
             margin: 20px 0;
         }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #0055a4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        body.dark-mode .dark-mode-toggle {
+            background-color: #4da6ff;
+        }
     </style>
 </head>
 <body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div class="container">
         <h1>Welcome to Gavin's Website</h1>
         <p>Hello! I am Gavin, a graduate student at the University of Waterloo.</p>
@@ -44,5 +73,10 @@
         <img src="iguana-image.webp" alt="Green Iguana" class="iguana-img">
         <p>Iguanas are fascinating reptiles known for their vibrant colors and unique behaviors. They are native to tropical areas of Central and South America and the Caribbean.</p>
     </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
